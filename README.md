@@ -10,6 +10,12 @@ A simple web application for estimating cloud infrastructure costs based on the 
 - Enter custom hourly pricing
 - Set daily usage between 1 and 24 hours
 - Simple and responsive user interface
+- AWS Region Selection
+- EC2 Instance Type Selection
+- Monthly Cost Estimation
+- Yearly Cost Estimation
+- Cost Summary Dashboard
+- Responsive Design
 
 ## 🧮 How It Works
 
