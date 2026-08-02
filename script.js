@@ -1,3 +1,22 @@
+// Restore previous selections
+window.onload = () => {
+
+    if (localStorage.getItem("instances")) {
+
+        document.getElementById("instances").value =
+            localStorage.getItem("instances");
+
+        document.getElementById("hourlyCost").value =
+            localStorage.getItem("hourlyCost");
+
+        document.getElementById("hours").value =
+            localStorage.getItem("hours");
+
+    }
+
+};
+
+// Calculate Button
 const calculateBtn = document.getElementById("calculateBtn");
 
 calculateBtn.addEventListener("click", function () {
@@ -44,10 +63,36 @@ calculateBtn.addEventListener("click", function () {
 
     document.getElementById("yearlyCost").textContent =
         `$${yearlyCost.toFixed(2)}`;
+
+    // Save values
+    localStorage.setItem("instances", instances);
+    localStorage.setItem("hourlyCost", hourlyCost);
+    localStorage.setItem("hours", hours);
+
 });
 
+// Dark Mode
 const themeButton = document.getElementById("themeToggle");
 
 themeButton.addEventListener("click", () => {
+
     document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+
+        localStorage.setItem("theme", "dark");
+
+    } else {
+
+        localStorage.setItem("theme", "light");
+
+    }
+
 });
+
+// Restore Theme
+if (localStorage.getItem("theme") === "dark") {
+
+    document.body.classList.add("dark");
+
+}
