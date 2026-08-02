@@ -45,3 +45,9 @@ calculateBtn.addEventListener("click", function () {
     document.getElementById("yearlyCost").textContent =
         `$${yearlyCost.toFixed(2)}`;
 });
+
+const themeButton = document.getElementById("themeToggle");
+
+themeButton.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+});
