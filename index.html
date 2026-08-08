@@ -3,126 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Cloud Cost Calculator for estimating AWS EC2 infrastructure costs."
+    >
+
     <title>Cloud Cost Calculator</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+<header class="hero">
+    <div class="hero-content">
 
-    <header>
-        <button id="themeToggle">🌙 Dark Mode</button>
-        <h1>☁️ Cloud Cost Calculator</h1>
-        <p>Estimate your monthly AWS EC2 costs in seconds.</p>
-    </header>
+        <span class="badge">AWS • CLOUD • DEVOPS</span>
 
-    <main class="calculator">
+        <h1>Cloud Cost Calculator</h1>
 
-        <section class="form-card">
+        <p>
+            Estimate your EC2 infrastructure costs
+            before deploying to AWS.
+        </p>
 
-            <h2>Configuration</h2>
+    </div>
+</header>
 
-            <label>AWS Region</label>
 
-            <select id="region">
-                <option>US East (N. Virginia)</option>
-                <option>EU (Frankfurt)</option>
-                <option>EU (Ireland)</option>
-                <option>Asia Pacific (Singapore)</option>
-            </select>
+<main class="container">
 
-            <label>EC2 Instance Type</label>
+    <!-- Calculator -->
 
-            <select id="instance">
-                <option>t2.micro</option>
-                <option>t3.micro</option>
-                <option>t3.small</option>
-                <option>t3.medium</option>
-                <option>m5.large</option>
-            </select>
+    <section class="card">
 
-            <label>Number of Instances</label>
+        <div class="section-heading">
+            <span class="step">01</span>
 
-            <input
-                type="number"
-                id="instances"
-                value="1"
-                min="1">
+            <div>
+                <h2>Calculate Your Cost</h2>
+                <p>Enter your infrastructure configuration.</p>
+            </div>
+        </div>
 
-            <label>Running Hours</label>
 
-            <input
-                type="number"
-                id="hours"
-                value="720">
+        <div class="form-grid">
 
-            <button id="calculateBtn">
-                Calculate Cost
-            </button>
+            <div class="form-group">
+                <label for="instance">
+                    Instance Type
+                </label>
 
-        </section>
+                <select id="instance">
+                    <option value="0.0104">
+                        t3.micro — $0.0104/hour
+                    </option>
 
-        <section class="result-card">
+                    <option value="0.0208">
+                        t3.small — $0.0208/hour
+                    </option>
 
-            <h2>Estimated Cost</h2>
+                    <option value="0.0416">
+                        t3.medium — $0.0416/hour
+                    </option>
 
-            <div class="result">
-
-                <span>Monthly</span>
-
-                <h3 id="monthlyCost">$0.00</h3>
-
+                    <option value="0.0832">
+                        t3.large — $0.0832/hour
+                    </option>
+                </select>
             </div>
 
-            <div class="result">
 
-                <span>Yearly</span>
+            <div class="form-group">
+                <label for="instances">
+                    Number of Instances
+                </label>
 
-                <h3 id="yearlyCost">$0.00</h3>
-
+                <input
+                    type="number"
+                    id="instances"
+                    min="1"
+                    value="1"
+                >
             </div>
 
-            <hr>
 
-            <h4>Summary</h4>
+            <div class="form-group">
+                <label for="hours">
+                    Hours Per Day
+                </label>
 
-            <ul>
+                <input
+                    type="number"
+                    id="hours"
+                    min="1"
+                    max="24"
+                    value="24"
+                >
+            </div>
 
-                <li>Region:
-                    <strong id="summaryRegion">
-                        US East
-                    </strong>
-                </li>
+        </div>
 
-                <li>Instance:
-                    <strong id="summaryInstance">
-                        t2.micro
-                    </strong>
-                </li>
 
-                <li>Instances:
-                    <strong id="summaryCount">
-                        1
-                    </strong>
-                </li>
+        <button id="calculateBtn" class="primary-btn">
+            Calculate Cost
+        </button>
 
-                <li>Hours:
-                    <strong id="summaryHours">
-                        720
-                    </strong>
-                </li>
+    </section>
 
-            </ul>
 
-        </section>
+    <!-- Results -->
 
-    </main>
+    <section class="results-grid">
 
-</div>
+        <div class="result-card">
+            <span>Daily Cost</span>
+            <strong id="dailyCost">$0.00</strong>
+        </div>
 
-<script src="assets/js/script.js"></script>
+
+        <div class="result-card featured">
+            <span>Monthly Cost</span>
+            <strong id="monthlyCost">$0.00</strong>
+        </div>
+
+
+        <div class="result-card">
+            <span>Yearly Cost</span>
+            <strong id="yearlyCost">$0.00</strong>
+        </div>
+
+    </section>
+
+
+    <!-- Information -->
+
+    <section class="info-grid">
+
+        <div class="info-card">
+            <span class="info-icon">☁️</span>
+
+            <h3>AWS Focused</h3>
+
+            <p>
+                Designed for quick EC2 cost estimation.
+            </p>
+        </div>
+
+
+        <div class="info-card">
+            <span class="info-icon">⚡</span>
+
+            <h3>Fast Calculation</h3>
+
+            <p>
+                Estimate daily, monthly and yearly costs instantly.
+            </p>
+        </div>
+
+
+        <div class="info-card">
+            <span class="info-icon">📊</span>
+
+            <h3>Compare</h3>
+
+            <p>
+                Compare different EC2 instance types.
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>
+        Built with HTML, CSS & JavaScript
+    </p>
+
+    <p>
+        Cloud Cost Calculator • AWS Learning Project
+    </p>
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
