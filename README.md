@@ -1,85 +1,125 @@
 # ☁️ Cloud Cost Calculator
 
-A simple web application for estimating cloud infrastructure costs based on the number of instances, hourly cost, and daily usage.
+A lightweight web-based calculator for estimating AWS EC2 infrastructure costs.
 
 ## 🚀 Features
 
-- Calculate estimated daily cloud costs
-- Calculate estimated monthly cloud costs
-- Configure the number of instances
-- Enter custom hourly pricing
-- Set daily usage between 1 and 24 hours
-- Simple and responsive user interface
-- AWS Region Selection
-- EC2 Instance Type Selection
-- Monthly Cost Estimation
-- Yearly Cost Estimation
-- Cost Summary Dashboard
-- Responsive Design
+- EC2 hourly cost estimation
+- Daily cost calculation
+- Monthly cost calculation
+- Yearly cost calculation
+- Multiple instance types
+- EC2 cost comparison
+- Responsive interface
+- No backend required
 
-## 🧮 How It Works
+---
 
-The calculator uses the following logic:
+## 📊 Supported Instances
+
+| Instance | Hourly Cost | Approx. Monthly |
+|---|---:|---:|
+| t3.micro | $0.0104 | $7.49 |
+| t3.small | $0.0208 | $14.98 |
+| t3.medium | $0.0416 | $29.95 |
+| t3.large | $0.0832 | $59.90 |
+
+> Pricing values are example estimates and should be verified against current AWS pricing before making deployment decisions.
+
+---
+
+## 🧮 Calculation Logic
+
+The calculator estimates:
 
 ```text
-Daily Cost = Number of Instances × Hourly Cost × Hours per Day
-
-Monthly Cost = Daily Cost × 30
+Daily Cost =
+Hourly Cost × Instances × Hours Per Day
 ```
-
-### Example
 
 ```text
-Number of Instances: 2
-Hourly Cost: $0.0116
-Hours per Day: 8
-
-Daily Cost: $0.19
-Monthly Cost: $5.57
+Monthly Cost =
+Daily Cost × 30
 ```
 
-## 🛠️ Technologies
+```text
+Yearly Cost =
+Daily Cost × 365
+```
+
+---
+
+## 🛠 Technologies
 
 - HTML5
 - CSS3
 - JavaScript
-- Git
-- GitHub
-
-## 📁 Project Structure
-
-```text
-cloud-cost-calculator/
-├── index.html
-├── style.css
-├── script.js
-└── README.md
-```
-
-## 🎯 Project Goals
-
-This project was created to practice:
-
-- Building a simple web application
-- Working with HTML, CSS, and JavaScript
-- Using Git branches
-- Working with feature-based development
-- Creating Pull Requests
-- Practicing GitHub workflows
-
-## 🔮 Future Improvements
-
-- Add multiple cloud providers
-- Add predefined instance pricing
-- Add yearly cost estimation
-- Add currency selection
-- Add dark mode
-- Improve cost visualization with charts
-
-## 📌 Disclaimer
-
-This calculator provides simple cost estimates based on manually entered hourly pricing. It does not represent official or real-time pricing from any cloud provider.
+- AWS EC2 pricing concepts
 
 ---
 
-⭐ Built as part of my continuous Cloud & DevOps learning journey.
+## 📂 Project Structure
+
+```text
+cloud-cost-calculator
+│
+├── index.html
+├── script.js
+├── style.css
+└── README.md
+```
+
+---
+
+## ▶️ Run Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/ramznagc/cloud-cost-calculator.git
+```
+
+Enter the project:
+
+```bash
+cd cloud-cost-calculator
+```
+
+Open:
+
+```text
+index.html
+```
+
+in your browser.
+
+No backend or package installation is required.
+
+---
+
+## 🎯 Project Goal
+
+The goal of this project is to build a simple tool for understanding and estimating cloud infrastructure costs while practicing frontend development and cloud concepts.
+
+---
+
+## 🔮 Future Improvements
+
+- AWS Pricing API integration
+- More EC2 instance families
+- EBS cost calculation
+- S3 cost estimation
+- Load Balancer cost estimation
+- Multi-service cost estimation
+- Cost visualization charts
+- AWS Region comparison
+
+---
+
+## 👨‍💻 Author
+
+**Ramazan**
+
+AWS • Linux • DevOps • Cloud
+
+Building cloud projects and documenting practical infrastructure concepts.
